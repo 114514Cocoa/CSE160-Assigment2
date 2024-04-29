@@ -145,12 +145,7 @@ function main() {
 
   addActionsForHtmlUI();
   // Register function (event handler) to be called on a mouse press
-  canvas.onmousedown = function(ev){
-    let [x,y] = converCoordinatesEventsToGL(ev);
-    x1 = x;
-    y1 = y;
-    click(ev);
-  }
+  canvas.onclick = function(ev) {if(ev.shiftKey) {g_lb1Animation = true; g_rb1Animation = true; g_rb3Animation = true; g_lb3Animation = true} else{g_lb1Animation = false; g_rb1Animation = false; g_rb3Animation = false; g_lb3Animation = false}};
   //canvas.onmousemove = click;
   canvas.onmousemove = function(ev) { if(ev.buttons == 1) { click(ev) }};
   // Specify the color for clearing <canvas>
